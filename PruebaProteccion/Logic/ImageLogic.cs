@@ -1,6 +1,5 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +7,10 @@ using System.Web;
 
 namespace PruebaProteccion.Logic
 {
+
+    /// <summary>
+    /// Capa logica para ajustar imagen en tamaño A4
+    /// </summary>
     public class ImageLogic
     {
 
@@ -25,39 +28,27 @@ namespace PruebaProteccion.Logic
                 data = memoryStream.ToArray();
             }
 
-            //Document doc = new Document(PageSize.A4, 0f, 0f, 0f, 0f);
             Document doc = new Document(new Rectangle(ancho, largo), 0f, 0f, 0f, 0f);
-
-
-            //var tamañaPagina = doc.PageSize;
-
             iTextSharp.text.Image imagen1 = iTextSharp.text.Image.GetInstance(data);
-
 
             if (imagen1.Width > imagen1.Height)
             {
-                //doc.SetPageSize(PageSize.A4.Rotate());
                 doc.SetPageSize(new Rectangle(ancho, largo).Rotate());
 
             }
             if (imagen1.Width > doc.PageSize.Width)
             {
-                //float nuevoAncho = doc.PageSize.Width;
                 imagen1.ScaleAbsoluteWidth(doc.PageSize.Width);
 
             }
             if (imagen1.Height > doc.PageSize.Height)
             {
-                //float nuevoAlto = doc.PageSize.Height;
                 imagen1.ScaleAbsoluteHeight(doc.PageSize.Height);
 
             }
 
-
-
             MemoryStream file = new MemoryStream();
             PdfWriter writer = PdfWriter.GetInstance(doc, file);
-            //writer.Open();
             doc.AddAuthor("JAC");
             doc.AddTitle("A4Imagen");
             doc.Open();
@@ -69,7 +60,5 @@ namespace PruebaProteccion.Logic
             return file;
 
         }
-
-
     }
 }
