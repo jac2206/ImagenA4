@@ -102,10 +102,7 @@ namespace PruebaProteccion.Logic
 
             imagen1.Alignment = Element.ALIGN_MIDDLE;
             doc.Add(imagen1);
-            doc.Close();
-
-            
-           
+            doc.Close();               
             return file;
 
         }

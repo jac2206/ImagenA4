@@ -4,9 +4,6 @@
 
 <h2>Descargar Imagenes PDF A4</h2>
 
-
-
-
 <div>
 
     <form method="post" action='@Url.Action("GuardarListaPDF")'>
@@ -26,14 +23,12 @@
                                                                                                                      .HtmlAttributes(new { aria_label = "files" })
                                                                                                                      .Validation(validation => validation.AllowedExtensions(new string[] { ".jpg" }))
 
-                    //.Validation(validation => validation.AllowedExtensions(new string[] { ".gif", ".jpg", ".png" }))
-
             )
 
 
             <p style="padding-top: 1em; text-align: right">
 
-                <button type="submit" class="k-button k-primary">Ver imagen A4-PDF</button>
+                <button type="submit" class="k-button k-primary">Descargar imagenes A4-PDF</button>
 
             </p>
 
@@ -45,15 +40,6 @@
 
     </div>
 
-
-
-
-    @*@(Html.Kendo().Button()
-        .Name("CargarImagen")
-        .HtmlAttributes(new { type = "button", @class = "k-primary" })
-        .Content("Cargar Imagen")
-
-        .Events(ev => ev.Click("Buscar")))*@
 
 </div>
 

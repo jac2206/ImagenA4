@@ -27,16 +27,7 @@ namespace PruebaProteccion.Controllers
         {
             try
             {
-
-                //Response.ContentType = "\".pdf\",\"application/pdf\"";
-                //Response.AddHeader("Content-disposition", "attachment; filename=documento.pdf");
-                //Response.BinaryWrite(ImageLogic.ImagenA4(files, ancho, largo).ToArray());
-                //Response.Flush();
-                //Response.End();
-
                 return this.File(ImageLogic.ImagenA4(files, ancho, largo).ToArray(), "application/pdf");
-
-                //return this.RedirectToAction("Index", "Imagen");
 
             }
             catch 
